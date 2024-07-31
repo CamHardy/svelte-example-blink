@@ -11,7 +11,6 @@ import {
     clusterApiUrl
 } from '@solana/web3.js';
 import 'dotenv/config'
-console.log(process.env.WALLET_PUBLIC_KEY);
 
 /** @type {import('./$types').RequestHandler} */
 export function GET({ url }) {
@@ -85,7 +84,7 @@ export async function POST({ request, url }) {
         }
     });
 
-    return new Response(JSON.stringify(payload), {
+    return Response.json(payload, {
         headers: ACTIONS_CORS_HEADERS
     });
 }

@@ -8,7 +8,7 @@ export function GET() {
         rules: [
             {
                 pathPattern: '/',
-                apiPath: 'api/donate/'
+                apiPath: '/api/donate/'
             }
         ]
     }, {
