@@ -64,7 +64,7 @@ export async function POST({ request, url }) {
         });
     }
 
-    const connection = new Connection(clusterApiUrl('devnet'), 'confirmed'); // use 'mainnet-beta' in production
+    const connection = new Connection(clusterApiUrl('mainnet-beta'), 'confirmed');
     const transaction = new Transaction().add(
         SystemProgram.transfer({
             fromPubkey: sender,
