@@ -10,7 +10,7 @@ import {
     Transaction,
     clusterApiUrl
 } from '@solana/web3.js';
-import 'dotenv/config'
+import 'dotenv/config';
 
 /** @type {import('./$types').RequestHandler} */
 export function GET({ url }) {
