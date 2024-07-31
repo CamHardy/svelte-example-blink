@@ -1,38 +1,76 @@
-# create-svelte
+# Solana Blink Donation Example
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+This project allows users to donate SOL to MiladyBuilder via a web interface. It includes two main endpoints: `GET` and `POST`, which handle donation actions.
 
-## Creating a project
+## Overview
 
-If you're seeing this, you've probably already done this step. Congrats!
+This project provides a simple way for users to donate SOL to MiladyBuilder using the Solana blockchain. It handles both the creation of donation actions and the proceessing of transactions.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Getting Started
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+First, run the development server:
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
-
-To create a production version of your app:
-
+Build the project for Vercel:
 ```bash
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+## Usage
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+To use this project, make GET and POST requests to the respective endpoints.
+
+### API Endpoints
+
+#### GET
+
+Description: Returns a JSON payload containing donation action details.
+
+Endpoint: `/api/donate`
+
+Method: GET
+
+Response:
+```json
+{
+    "icon": "icon_url",
+    "title": "Donate to MiladyBuilder",
+    "description": "Support MiladyBuilder by donating SOL.",
+    "label": "Donate",
+    "links": {
+        "actions": [
+            {
+                "label": "Donate 0.1 SOL",
+                "href": "http://yourdomain.com/api/donate?amount=0.1"
+            }
+        ]
+    }
+}
+```
+
+#### POST
+
+Description: Processes a donation transaction on the Solana blockchain.
+
+Endpoint: `/api/donate`
+
+Method: POST
+
+Body:
+```json
+{
+    "account": "public_key"
+}
+```
+
+Response:
+```json
+{
+    "fields": {
+        "transaction": "SerializedTransaction",
+        "message": "Message"
+    }
+}
